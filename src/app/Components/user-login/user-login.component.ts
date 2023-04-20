@@ -44,16 +44,16 @@ export class UserLoginComponent {
           sessionStorage.setItem('id', id);
           sessionStorage.setItem('email',this.email1)
 
-          if(this.token.message =="admin"){
-            this.router.navigate(['home']);
+          if(this.token.message =="Admin"){
             alert("done");
+            this.router.navigate(['Home']);
           }
           else if(this.token.message =="client"){
             this.router.navigate(['Home']);
           }
         } else {
           console.log("login")
-          this.router.navigate(['Home']);
+          this.router.navigate(['Products']);
 
         }
       });

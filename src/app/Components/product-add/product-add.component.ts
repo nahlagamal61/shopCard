@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder,Validators} from '@angular/forms'
+
 import { Router } from '@angular/router';
 
 import { ProductModel  } from 'src/app/Models/ProductModel';
@@ -22,7 +23,7 @@ export class ProductAddComponent {
   category : ["", Validators.required],
   image : ["", Validators.required]
   })
-  
+
   save(RegisterForm:any) {
     
     // if (this.registerForm.errors) {

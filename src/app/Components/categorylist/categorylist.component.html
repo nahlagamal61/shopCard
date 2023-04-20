@@ -1,0 +1,47 @@
+<a routerLink="/Category/add" class="btn btn-primary" >Add Category </a>
+
+<div class="table-responsive mt-3">
+  <table  class="table mt-3" style="box-shadow:  5px 5px 5px 5px rgb(180, 212, 223);">
+    <thead class="t_header" style="background-color:  rgb(180, 212, 223);">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col"> Description  </th>
+        <th scope="col">delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let category of categories,let i=index">
+        <td>{{i+1}}</td>
+        <td>{{category.catName}}</td>
+        <td>{{category.description}}</td>
+        <td>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteDialog(category._id)">
+                Delete
+            </button>
+        </td>
+     
+      </tr>  
+    </tbody>
+  </table>
+</div>
+
+   <!-- Delete Modal -->
+ <div class="modal" tabindex="-1" id="deleteModal" [ngClass]="{'show':deleteModal}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger">Delete Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="deleteModal=false"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete?</p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="delete(deletedId)">Yes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deleteModal=false">No</button>
+      </div>
+    </div>
+  </div>
+</div>

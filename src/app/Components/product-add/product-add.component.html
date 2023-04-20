@@ -6,15 +6,23 @@
 
   
       <fieldset formGroupName="clinic_location">
-        <label for="city" class="mt-2">City</label>
-        <input type="text" class="form-control mx-2" placeholder="City" formControlName="city">
+        <label for="rdName" class="mt-2">Product Name</label>
+        <input type="text" class="form-control mx-2" placeholder="product Name" formControlName="rdName">
       
-        <label for="street" class="mt-2">Street</label>
-        <input type="text" class="form-control mx-2" placeholder="Street" formControlName="street">
+        <label for="price" class="mt-2">Product price</label>
+        <input type="number" class="form-control mx-2" placeholder="" formControlName="price">
+      
+        <label for="quantity" class="mt-2">Product quantity</label>
+        <input type="number" class="form-control mx-2" placeholder="" formControlName="quantity">
         
-        <label for="building" class="mt-2">Building</label>
-        <input type="number"  min="1" class="form-control mx-2" placeholder="Building" formControlName="building">
+        <label for="description" class="mt-2">Product description</label>
+        <input type="text" class="form-control mx-2" placeholder="" formControlName="description">
         
+        <select class="form-select" aria-label=" select category name" formControlName="category" [ngClass]="{error:getControl('category')?.errors&&getControl('category')?.touched}">
+            <option *ngFor="let category of allcategory" [value]="category._id">{{category.catName}}</option>
+        </select>
+        <label for="image" class="mt-2">Product image</label>
+        <input type="file" class="form-control mx-2" placeholder="" formControlName="image">
       </fieldset>
   
       <button class="btn btn-info text-center w-100 my-3">Add</button>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { ProductAddComponent } from './Components/product-add/product-add.component';
 
 import { AuthIntercepentorService } from './Services/auth-intercepentor.service';
+import { CategoryAddComponent } from './Components/category-add/category-add.component';
+import { CategorylistComponent } from './Components/categorylist/categorylist.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { AuthIntercepentorService } from './Services/auth-intercepentor.service'
     NotFoundComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    CategoryAddComponent,
+    CategorylistComponent
     
   ],
   imports: [

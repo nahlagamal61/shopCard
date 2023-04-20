@@ -1,0 +1,19 @@
+
+<div class="card d-flex justify-content-center">
+    <form [formGroup]="registerForm" (ngSubmit)="save(registerForm)" class="form-group px-3 py-3">
+      <label for="clinicName">Clinic Name</label>
+      <input type='text' class="form-control mx-2" placeholder="Name" formControlName="clinicName" />
+
+  
+      <fieldset formGroupName="clinic_location">
+        <label for="catName" class="mt-2">category Name</label>
+        <input type="text" class="form-control mx-2" placeholder="categoryName" formControlName="catName">
+
+        <label for="description" class="mt-2">Product description</label>
+        <input type="text" class="form-control mx-2" placeholder="" formControlName="description">
+      </fieldset>
+  
+      <button class="btn btn-info text-center w-100 my-3">Add</button>
+    </form>
+  </div>
+  

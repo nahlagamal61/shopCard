@@ -7,12 +7,14 @@ import { ProductListComponent } from 'src/app/Components/orders/product-list/pro
 import { OrdersComponent } from 'src/app/Components/orders/orders.component';
 import { NotFoundError } from 'rxjs';
 import { RegisterComponent } from './Components/register/register.component';
+import {CategoryAddComponent} from './Components/category-add/category-add.component'
 
 const routes: Routes = [
   {path:'',component:HomeComponent,children:[
     {path:'Home',component:HomeComponent},
     {path:'products/:id',component:ProductDetailsComponent},
     {path:'Products',component:ProductListComponent},
+    {path:'category/add',component:CategoryAddComponent},
     {path:'Order',component:OrdersComponent},
     {path:'' ,redirectTo:'/Home',pathMatch:'full'},
   ]},

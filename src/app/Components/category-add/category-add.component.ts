@@ -1,22 +1,17 @@
 import { Component } from '@angular/core';
 import {AbstractControl, FormBuilder,Validators} from '@angular/forms'
-
 import { Router } from '@angular/router';
 import { CategoryModel } from 'src/app/Models/CategoryModel';
-
 import { CatogoryService } from 'src/app/Services/CategoryService';
-import { ProductService } from 'src/app/Services/ProductService';
-
 
 @Component({
-  selector: 'app-product-add',
-  templateUrl: './product-add.component.html',
-  styleUrls: ['./product-add.component.css']
+  selector: 'app-category-add',
+  templateUrl: './category-add.component.html',
+  styleUrls: ['./category-add.component.css']
 })
-export class ProductAddComponent {
+export class CategoryAddComponent {
   public allcategory: CategoryModel[] =[]; 
   constructor(public builder:FormBuilder,
-     public productService : ProductService ,
      public categoryService : CatogoryService,
      public router:Router) 
   {
@@ -25,12 +20,8 @@ export class ProductAddComponent {
     })
   }
     registerForm = this.builder.group({
-    rdName:['',Validators.required],
-    price:['',Validators.required],
-    quantity:['',Validators.required ],
-    description:["", Validators.required],
-    category : ["", Validators.required],
-    image : ["", Validators.required]
+    catName:['',Validators.required],
+    description:["", Validators.required]
   })
 
   save(RegisterForm:any) {
@@ -41,19 +32,19 @@ export class ProductAddComponent {
   
     if (this.registerForm.valid) {
       if(sessionStorage.getItem('role')== 'admin'){
-        this.productService.add(RegisterForm.value).subscribe(data => {
+        this.categoryService.add(RegisterForm.value).subscribe(data => {
           console.log(data);
-          this.router.navigateByUrl("/Products");
+          this.router.navigateByUrl("/home");
         });
       }
       else{
         this.router.navigate(['notFound']);
       }
-    
     } 
   }
   getControl(fullName:any |undefined): AbstractControl |null
   {
     return this.registerForm.get(fullName);
   }
+
 }

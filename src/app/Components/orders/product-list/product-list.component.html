@@ -14,6 +14,7 @@
             <th>Price In EGP</th>
             <th>Count</th>
             <th>Details</th>
+            <th>Delete</th>
             <th>Add to cart</th>
         </tr>
     </thead>
@@ -33,8 +34,16 @@
             <td>{{product?.price|currency:'USD'}}</td> 
             <td>{{product.price | currency:'EGP':'code'}}</td> 
             <td><input class="form-control" type="number" #ItemCount></td>
-           <td> <a class="btn btn-primary" [routerLink]="['/products',product._id]" role="button">Details</a></td>
-            <td><button class="btn btn-success" (click)="buy(product.price,ItemCount.value)">Buy</button></td>
+            <td> <a class="btn btn-primary" [routerLink]="['/products',product._id]" role="button">Details</a></td>
+            
+            <td *ngIf="isAdmin">
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteDialog(product._id)">
+                    Delete
+                </button>
+            </td>
+            <td *ngIf="isClient" >
+                <button class="btn btn-success" (click)="buy(product.price,ItemCount.value)">Buy</button>
+            </td>
         </tr>
     </tbody>
 </table>

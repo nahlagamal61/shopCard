@@ -14,6 +14,10 @@ export class ProductListComponent {
   @Output()totalPriceChanged:EventEmitter<number>; //decleration 
   prdListOfCat:ProductModel[]=[];
   @Input() sentCatID:number=0;
+  deleteModal = false;
+  isAdmin = false;
+  isClient = false;
+  deletedId = 0;
   orderDate:Date;
   constructor(public productService : ProductService)
   {
@@ -24,6 +28,12 @@ export class ProductListComponent {
   ngOnChanges()
   {
     this.getProductByCatID(this.sentCatID);
+    if(sessionStorage.getItem('role')== 'admin'){
+      this.isAdmin =true
+    }
+    if(sessionStorage.getItem('role')== 'client'){
+      this.isClient =true
+    }
   }
   ngOnInit()
   {
@@ -53,4 +63,18 @@ export class ProductListComponent {
     });
   }
 
+  deleteDialog(id:number| undefined = 0) {
+    console.log(id)
+    this.deletedId = id;
+    this.deleteModal = true;
+  }
+
+  delete(id: number) {
+      this.productService.deleteById(id).subscribe(data => {
+        console.log(data);
+        this.deleteModal = false;
+        location.reload();
+
+      })
+  }
 }

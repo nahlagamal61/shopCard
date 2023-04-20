@@ -9,13 +9,15 @@ import { NotFoundError } from 'rxjs';
 import { RegisterComponent } from './Components/register/register.component';
 
 const routes: Routes = [
-  {path:'' ,redirectTo:'/Home',pathMatch:'full'},
-  {path:'Home',component:HomeComponent},
-  {path: 'register', component: RegisterComponent },
+  {path:'',component:HomeComponent,children:[
+    {path:'Home',component:HomeComponent},
+    {path:'products/:id',component:ProductDetailsComponent},
+    {path:'Products',component:ProductListComponent},
+    {path:'Order',component:OrdersComponent},
+    {path:'' ,redirectTo:'/Home',pathMatch:'full'},
+  ]},
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: UserLoginComponent },
-  {path:'Products',component:ProductListComponent},      
-  {path:'Order',component:OrdersComponent},
-  {path:'products/:id',component:ProductDetailsComponent},
   {path:'**',component:NotFoundError}
   ];
 ;

@@ -13,6 +13,7 @@ import {ProductListComponent} from './Components/orders/product-list/product-lis
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
 import { ProductDetailsComponent } from './Components/orders/product-details/product-details.component';
+import { ProductAddComponent } from './Components/product-add/product-add.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ProductDetailsComponent } from './Components/orders/product-details/pro
     OrdersComponent,
     NotFoundComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductAddComponent
     
   ],
   imports: [

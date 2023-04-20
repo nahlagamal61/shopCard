@@ -45,17 +45,10 @@ export class UserLoginComponent {
           sessionStorage.setItem('email',this.email1)
 
           if(this.token.message =="admin"){
-            this.router.navigate(['adminPage']);
+            this.router.navigate(['home']);
             alert("done");
           }
-          else if(this.token.message =="patient"){
-            this.router.navigate(['patientPage']);
-          }
-          else if(this.token.message =="employee"){
-            this.router.navigate(['employeePage']);
-          }else {
-            this.router.navigate(['doctorPage']);
-          }
+        
         } else {
           this.router.navigate(['doctorPage']);
 

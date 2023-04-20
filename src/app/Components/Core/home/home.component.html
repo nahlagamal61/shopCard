@@ -57,50 +57,26 @@
           <!-- Left links -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="#">Home</a>
+              <a class="nav-link text-dark" aria-current="page" routerLink="/Home">Home</a>
             </li>
-
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Hot offers</a>
+            <li class="nav-item" > 
+              <a class="nav-link text-dark" href="#">Profile</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Gift boxes</a>
+            <li class="nav-item" *ngIf="isAdmin || isClient">
+              <a class="nav-link text-dark" routerLink="/Products">Product</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Projects</a>
+            <li class="nav-item" *ngIf="isAdmin">
+              <a class="nav-link text-dark" routerLink="/category">category</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Menu item</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Menu name</a>
-            </li>
-            <!-- Navbar dropdown -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                Others
-              </a>
-              <!-- Dropdown menu -->
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="#">Action</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Another action</a>
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
+            <li class="nav-item" *ngIf="isClient">
+              <a class="nav-link text-dark" routerLink="/Order">Card</a>
             </li>
           </ul>
-          <!-- Left links -->
         </div>
       </div>
-      <!-- Container wrapper -->
     </nav>
 
+  
     <div class="bg-primary text-white py-5">
       <div class="container py-5">
         <h1>
@@ -122,13 +98,10 @@
   </header>
   <!-- Products -->
   <section>
-    
+    <router-outlet></router-outlet>
   </section>
-  <!-- Products -->
-  
-  <!-- Feature -->
+ 
 
-  <!-- Footer -->
 <footer class="text-center text-lg-start bg-dark text-muted">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">

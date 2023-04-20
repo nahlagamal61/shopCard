@@ -2,13 +2,14 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { CategoryModel } from '../Models/CategoryModel'
 
-import { catchError, Observable, retry, throwError } from 'rxjs';
+import { catchError, map, Observable, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
+import { ProductModel } from '../Models/ProductModel';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class CatogoryService {
 
   httpOption;
   constructor(private httpClient: HttpClient) {
@@ -34,7 +35,7 @@ export class ProductService {
 
   getAll():Observable<CategoryModel[]>{
     return this.httpClient
-    .get<CategoryModel[]>(`${environment.apiUrl}/Products`)
+    .get<CategoryModel[]>(`${environment.apiUrl}/Category`)
     .pipe(
       retry(2),
       catchError(this.handleError)
@@ -76,4 +77,6 @@ export class ProductService {
         catchError(this.handleError)
       );
   }
+  
+
 }

@@ -1,5 +1,5 @@
 
-export class AddressModel {
+export class Address {
     constructor(
         public city: string,
         public street: string,

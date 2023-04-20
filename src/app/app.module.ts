@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material.module';
 import { RegisterComponent } from './Components/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { HeaderComponent } from './Core/header/header.component';
 import { FooterComponent } from './Core/footer/footer.component';
 import { SidebarComponent } from './Core/sidebar/sidebar.component';
@@ -17,7 +17,11 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
 import { MainlayoutComponent } from './mainlayout/mainlayout.component';
 import { ProductDetailsComponent } from './Components/orders/product-details/product-details.component';
+import { FormsModule } from '@angular/forms';
 
+import { ReactiveFormsModule } from '@angular/forms'
+
+import { AuthIntercepentorService } from './Services/auth-intercepentor.service';
 
 @NgModule({
   declarations: [
@@ -40,9 +44,17 @@ import { ProductDetailsComponent } from './Components/orders/product-details/pro
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthIntercepentorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

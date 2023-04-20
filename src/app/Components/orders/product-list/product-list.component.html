@@ -2,8 +2,9 @@
 <div>Order date {{orderDate | date}}</div>
 <hr>
 <table class="table">
-    <a routerLink="/products/add" class="btn btn-primary" >Add Product</a>
-
+    <div *ngIf="isAdmin">
+        <a routerLink="/products/add" class="btn btn-primary" >Add Product</a>
+    </div>
     <thead class="bg-light text-dark">
         <tr>
             <th>No</th>
@@ -14,9 +15,7 @@
             <th>Price In EGP</th>
             <th>Count</th>
             <th>Details</th>
-            <th>Delete</th>
-            <th>Add to cart</th>
-        </tr>
+            <th *ngIf="isAdmin" >Delete</th>
     </thead>
     <tbody>
         <tr *ngFor="let product of prdListOfCat; let i= index">

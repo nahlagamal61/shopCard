@@ -15,7 +15,7 @@ import { Observable, of } from 'rxjs';
 export class RegisterComponent {
 
   emailRagex= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  imagePath = 'C:\Users\RadwaElgammal\Desktop\Screenshot 2023-03-10 145725.png';
+  imagePath = '';
   constructor(private builder:FormBuilder,
     private authServices:AuthenticationService,private router:Router)
   {

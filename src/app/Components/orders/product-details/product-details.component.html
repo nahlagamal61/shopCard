@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;" class="m-2">
+    <img class="card-img-top" [src]="prd?.image" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{prd?.prdName}}</h5>
+      <div class="card-text">
+        <div>{{prd?.price}}</div>
+        <div>{{prd?.quantity}}</div>   
+     
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary" (click)="PreviousPrd()">Previous</button>
+        <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+        <button type="button" class="btn btn-primary" (click)="nextPrd()">Next</button>
+      </div>
+  </div>

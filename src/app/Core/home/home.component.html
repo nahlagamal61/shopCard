@@ -1,0 +1,11 @@
+<img src="{{storeInfo.imgURL}}" *ngIf="isimgShowm">
+<h1>
+    {{storeInfo.name}}
+</h1>
+<button type="button" class="btn btn-success" (click)="toggle()">Toggle Img</button>
+<ul>
+    <li *ngFor="let item of storeInfo.branches">
+            {{item}}
+            
+    </li>
+</ul>

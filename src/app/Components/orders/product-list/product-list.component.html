@@ -1,0 +1,39 @@
+
+<div>Order date {{orderDate | date}}</div>
+<hr>
+<table class="table">
+    <thead class="bg-light text-dark">
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th> Available Quantity</th>
+            <th>Price In USD</th>
+            <th>Price In EGP</th>
+            <th>Count</th>
+            <th>Details</th>
+            <th>Add to cart</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of prdListOfCat; let i= index">
+            <td>{{i+1}}</td>
+            <td>{{product?.prdName}} </td>
+            <td><img appLigthBox="red" defaultColor="black" src={{product?.image}}></td>
+            <td>
+                <ng-container [ngSwitch]="product.quantity">
+                    <div *ngSwitchCase='0'>Out of stock</div>
+                    <div *ngSwitchCase='1'>Last Item</div>
+                    <div *ngSwitchCase="2">Last two items</div>
+                    <div *ngSwitchDefault>{{product.quantity}}</div>
+                </ng-container>
+            </td>
+            <td>{{product?.price|currency:'USD'}}</td> 
+            <td>{{product.price | currency:'EGP':'code'}}</td> 
+            <td><input class="form-control" type="number" #ItemCount></td>
+           <td> <a class="btn btn-primary" [routerLink]="['/products',product._id]" role="button">Details</a></td>
+            <td><button class="btn btn-success" (click)="buy(product.price,ItemCount.value)">Buy</button></td>
+        </tr>
+    </tbody>
+</table>
+<hr>

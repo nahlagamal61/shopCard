@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 import { Observable, of } from 'rxjs';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

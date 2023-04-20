@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './Core/header/header.component';
 import { FooterComponent } from './Core/footer/footer.component';
 import { SidebarComponent } from './Core/sidebar/sidebar.component';
-import { HomeComponent } from './Core/home/home.component';
+import { HomeComponent } from './Components/Core/home/home.component';
 import { OrdersComponent } from './Components/orders/orders.component';
 import {ProductListComponent} from './Components/orders/product-list/product-list.component'
 import { NotFoundComponent } from './Components/not-found/not-found.component';
@@ -33,6 +33,7 @@ import { ProductDetailsComponent } from './Components/orders/product-details/pro
     MainlayoutComponent,
     ProductListComponent,
     ProductDetailsComponent
+    
   ],
   imports: [
     BrowserModule,

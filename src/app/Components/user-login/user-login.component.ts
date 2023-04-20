@@ -33,7 +33,7 @@ export class UserLoginComponent {
   proceedLogin() {
     this.loginForm.markAllAsTouched();
     if (this.loginForm.valid) {
-      this.authServices.login(this.loginForm.value).subscribe((_token) => {
+      this.authServices.login(this.loginForm.value).subscribe((_token:any) => {
         this.token = _token;
         if (this.token) {
           console.log(this.token.email)
@@ -48,9 +48,12 @@ export class UserLoginComponent {
             this.router.navigate(['home']);
             alert("done");
           }
-        
+          else if(this.token.message =="client"){
+            this.router.navigate(['Home']);
+          }
         } else {
-          this.router.navigate(['doctorPage']);
+          console.log("login")
+          this.router.navigate(['Home']);
 
         }
       });

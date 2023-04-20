@@ -15,7 +15,7 @@ import { Observable, of } from 'rxjs';
 export class RegisterComponent {
 
   emailRagex= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  imagePath = '';
+  imagePath = '"C:\Users\RadwaElgammal\Desktop\photo-1575936123452-b67c3203c357.jfif"';
   constructor(private builder:FormBuilder,
     private authServices:AuthenticationService,private router:Router)
   {
@@ -28,7 +28,7 @@ export class RegisterComponent {
     email:this.builder.control('',Validators.compose([Validators.required,Validators.email,Validators.pattern(this.emailRagex)])),
     gender:this.builder.control(''),
     age:this.builder.control('',Validators.compose([Validators.required,Validators.min(1),Validators.max(100)])),
-    role:this.builder.control('patient'),
+    role:this.builder.control('client'),
     address:this.builder.group({
       city:[''],
       street:[''],
@@ -57,14 +57,13 @@ export class RegisterComponent {
   }
   proceedRegisteration() {
     this.registerForm.markAllAsTouched();
-
-
     if (this.registerForm.errors) {
-       return;
+      console.log("ttttt");
+       
     }
 
     if (this.registerForm.valid) {
-      this.authServices.register(this.registerForm.value).subscribe(res => {
+      this.authServices.register(this.registerForm.value).subscribe(() => {
 
         this.router.navigate(['login'])
       });

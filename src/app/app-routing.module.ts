@@ -17,8 +17,8 @@ const routes: Routes = [
       {path:'Order',component:OrdersComponent},
       {path:'' ,redirectTo:'/Home',pathMatch:'full'},
     ]},
-    {path:'LogIn',component:UserLoginComponent},
     { path: 'register', component: RegisterComponent },
+    { path: 'login', component: UserLoginComponent },
     {path:'**',component:NotFoundError}
   ];
 ;

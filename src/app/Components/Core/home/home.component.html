@@ -62,13 +62,13 @@
             <li class="nav-item" > 
               <a class="nav-link text-dark" href="#">Profile</a>
             </li>
-            <li class="nav-item" *ngIf="isAdmin || isClient">
+            <li class="nav-item">
               <a class="nav-link text-dark" routerLink="/Products">Product</a>
             </li>
-            <li class="nav-item" *ngIf="isAdmin">
+            <li class="nav-item">
               <a class="nav-link text-dark" routerLink="/category">category</a>
             </li>
-            <li class="nav-item" *ngIf="isClient">
+            <li class="nav-item" >
               <a class="nav-link text-dark" routerLink="/Order">Card</a>
             </li>
           </ul>

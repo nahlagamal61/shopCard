@@ -15,7 +15,7 @@
             <th>Price In EGP</th>
             <th>Count</th>
             <th>Details</th>
-            <th *ngIf="isAdmin" >Delete</th>
+            <th >Delete</th>
     </thead>
     <tbody>
         <tr *ngFor="let product of prdListOfCat; let i= index">
@@ -35,12 +35,12 @@
             <td><input class="form-control" type="number" #ItemCount></td>
             <td> <a class="btn btn-primary" [routerLink]="['/products',product._id]" role="button">Details</a></td>
             
-            <td *ngIf="isAdmin">
+            <td >
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteDialog(product._id)">
                     Delete
                 </button>
             </td>
-            <td *ngIf="isClient" >
+            <td  >
                 <button class="btn btn-success" (click)="buy(product.price,ItemCount.value)">Buy</button>
             </td>
         </tr>

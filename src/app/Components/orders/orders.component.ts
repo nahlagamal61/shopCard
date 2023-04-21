@@ -18,6 +18,7 @@ export class OrdersComponent {
   }
 
   ngOnInit(){
+    //get all category
     this.CatogoryService.getAll().subscribe(res =>
       {
         this.catList = res

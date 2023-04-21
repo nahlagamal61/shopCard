@@ -3,9 +3,11 @@
 </div>
 <div class="card d-flex justify-content-center">
   <form [formGroup]="registerForm" (ngSubmit)="save(registerForm)" class="form-group px-3 py-3">
+        <!-- product items  -->
       <label for="prdName" class="mt-2">Product Name</label>
         <input type="text" class="form-control mx-2" placeholder="product Name" formControlName="prdName">
       
+
         <label for="price" class="mt-2">Product price</label>
         <input type="number" class="form-control mx-2" placeholder="" formControlName="price">
       

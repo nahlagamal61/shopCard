@@ -63,6 +63,8 @@ export class ProductAddComponent {
     //   this.registerForm.get('descriptio')?.value,
     //   this.registerForm.get('category')?.value
     // );
+    
+    //ckeck if data is valid
     if (this.registerForm.valid) {
       if(sessionStorage.getItem('role')== 'Admin'){
         this.productService.add(RegisterForm.value).subscribe(data => {

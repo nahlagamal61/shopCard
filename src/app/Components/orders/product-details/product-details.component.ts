@@ -24,7 +24,7 @@ export class ProductDetailsComponent {
 
   ngOnInit()
   {
-
+    //add image 
     this.activatedRoute.paramMap.subscribe((paramMap)=>{
       this.currentID =Number(paramMap.get('id')); 
       this.ProductService.getById(this.currentID).subscribe(res =>{

@@ -20,17 +20,18 @@ export class CategoryAddComponent {
       this.allcategory = res;
     })
   }
+  //add register form
     registerForm = this.builder.group({
     catName:['',Validators.required],
     description:["", Validators.required]
     })
-
+  // save sada to database
   save(RegisterForm:any) {
     
     if (this.registerForm.errors) {
       return;
     }
-  
+  //data is avalid so add it
     if (this.registerForm.valid) {
       if(sessionStorage.getItem('role')== 'Admin'){
         this.categoryService.add(RegisterForm.value).subscribe(data => {

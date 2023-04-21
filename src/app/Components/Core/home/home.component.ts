@@ -14,6 +14,7 @@ export class HomeComponent {
     
   }
   ngOnInit(){
+    // check user role
     if(sessionStorage.getItem('role')== 'Admin'){
       this.isAdmin =true
     }

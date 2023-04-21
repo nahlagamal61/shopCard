@@ -41,18 +41,21 @@ export class ProductListComponent {
   }
   ngOnInit()
   {
+    // get user role
     if(sessionStorage.getItem('role')== 'Admin'){
       this.isAdmin =true
     }
     if(sessionStorage.getItem('role')== 'client'){
       this.isClient =true
     }
+    //get all product
     this.productService.getAll().subscribe(res =>{
       
       this.prdListOfCat = res
 
     })
   }
+  // method to by
   buy(productPrice:number,count:any)
   {
     let  itemsCount:number = +count

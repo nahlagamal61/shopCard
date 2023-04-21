@@ -5,13 +5,13 @@
 
 <div class="card d-flex justify-content-center">
     <form [formGroup]="registerForm" (ngSubmit)="save(registerForm)" class="form-group px-3 py-3">
-  
+        <!-- label to add category name  -->
         <label for="catName" class="mt-2">category Name</label>
         <input type="text" class="form-control mx-2" placeholder="categoryName" formControlName="catName">
         <div *ngIf="getControl('catName')?.errors && getControl('catName')?.touched">
           <small class="text-danger" *ngIf="getControl('catName')?.errors?.['required']"> Please Enter category</small>
         </div>
-
+        <!-- label to add category decription  -->
         <label for="description" class="m-2">Ctegory description</label>
         <input type="text" class="form-control mx-2" placeholder="" formControlName="description">
         <div *ngIf="getControl('description')?.errors && getControl('description')?.touched">

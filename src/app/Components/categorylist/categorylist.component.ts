@@ -18,14 +18,14 @@ export class CategorylistComponent {
 
   }
   ngOnInit(){
-    
+    // get all category to show
       this.categoryService.getAll().subscribe(data=>{
         this.categories=data;
       })
   
   }
 
-
+// delete selected category
   delete(id: number |undefined =0) {
     const readyTodelete = confirm("are you sure ?");
     if(readyTodelete == true){

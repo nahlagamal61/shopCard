@@ -21,7 +21,7 @@ export class RegisterComponent {
   {
 
   }
-
+// set validation for registeration
   registerForm= this.builder.group({
     fullName:this.builder.control('',[Validators.required,Validators.maxLength(20),Validators.minLength(3)]),
     password:this.builder.control('',Validators.compose([Validators.required,Validators.minLength(4),Validators.maxLength(10)])),
@@ -42,7 +42,7 @@ export class RegisterComponent {
   {
     return this.registerForm.get(fullName);
   }
-
+// select file 
   onFileSelected(event: any) {
     if (event.target.files && event.target.files.length) {
       const file = event.target.files[0].name;

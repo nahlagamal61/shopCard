@@ -19,7 +19,7 @@ export class UserLoginComponent {
   {
       sessionStorage.clear();
   }
-
+  //login form
   loginForm=this.builder.group({
     email:this.builder.control('',Validators.compose([Validators.required,Validators.email,Validators.pattern(this.emailRagex)])),
     password:this.builder.control('',Validators.required)
@@ -30,6 +30,7 @@ export class UserLoginComponent {
     this.email1=this.loginForm.get('email')?.value
     return this.loginForm.get(email);
   }
+  // login process
   proceedLogin() {
     this.loginForm.markAllAsTouched();
     if (this.loginForm.valid) {

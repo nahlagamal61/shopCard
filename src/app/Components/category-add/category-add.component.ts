@@ -35,7 +35,7 @@ export class CategoryAddComponent {
       if(sessionStorage.getItem('role')== 'Admin'){
         this.categoryService.add(RegisterForm.value).subscribe(data => {
           // console.log(data);
-          this.router.navigateByUrl("/category");
+          this.router.navigate(['category']);
         });
       }
       else{

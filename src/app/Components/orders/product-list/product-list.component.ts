@@ -28,7 +28,7 @@ export class ProductListComponent {
   ngOnChanges()
   {
     this.getProductByCatID(this.sentCatID);
-    if(sessionStorage.getItem('role')== 'admin'){
+    if(sessionStorage.getItem('role')== 'Admin'){
       this.isAdmin =true
     }
     if(sessionStorage.getItem('role')== 'client'){

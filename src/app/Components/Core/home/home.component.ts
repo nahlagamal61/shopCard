@@ -14,15 +14,13 @@ export class HomeComponent {
     
   }
   oninit(){
-    if(sessionStorage.getItem('role')== 'admin'){
+    if(sessionStorage.getItem('role')== 'Admin'){
       this.isAdmin =true
     }
     if(sessionStorage.getItem('role')== 'client'){
       this.isClient =true
     }
     this.userId = sessionStorage.getItem('id');
-    
-
 
   }
 }

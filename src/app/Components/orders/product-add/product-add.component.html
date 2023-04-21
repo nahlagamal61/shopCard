@@ -1,13 +1,10 @@
-
+<div class="m-2">
+  <button type="button" class="btn btn-primary" href="/Products">Back</button>
+</div>
 <div class="card d-flex justify-content-center">
-    <form [formGroup]="registerForm" (ngSubmit)="save(registerForm)" class="form-group px-3 py-3">
-      <label for="clinicName">Clinic Name</label>
-      <input type='text' class="form-control mx-2" placeholder="Name" formControlName="clinicName" />
-
-  
-      <fieldset formGroupName="clinic_location">
-        <label for="rdName" class="mt-2">Product Name</label>
-        <input type="text" class="form-control mx-2" placeholder="product Name" formControlName="rdName">
+  <form [formGroup]="registerForm" (ngSubmit)="save(registerForm)" class="form-group px-3 py-3">
+      <label for="prdName" class="mt-2">Product Name</label>
+        <input type="text" class="form-control mx-2" placeholder="product Name" formControlName="prdName">
       
         <label for="price" class="mt-2">Product price</label>
         <input type="number" class="form-control mx-2" placeholder="" formControlName="price">
@@ -17,15 +14,13 @@
         
         <label for="description" class="mt-2">Product description</label>
         <input type="text" class="form-control mx-2" placeholder="" formControlName="description">
-        
+        <label for="description" class="mt-2">Product category</label>
         <select class="form-select" aria-label=" select category name" formControlName="category" [ngClass]="{error:getControl('category')?.errors&&getControl('category')?.touched}">
             <option *ngFor="let category of allcategory" [value]="category._id">{{category.catName}}</option>
         </select>
-        <label for="image" class="mt-2">Product image</label>
-        <input type="file" class="form-control mx-2" placeholder="" formControlName="image">
-      </fieldset>
+       
   
-      <button class="btn btn-info text-center w-100 my-3">Add</button>
-    </form>
+        <button class="btn btn-info text-center w-100 my-3" type="submit">Add</button>
+      </form>
   </div>
   

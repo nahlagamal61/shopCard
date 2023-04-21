@@ -11,6 +11,7 @@ import { CatogoryService } from 'src/app/Services/CategoryService';
 })
 export class CategoryAddComponent {
   public allcategory: CategoryModel[] =[]; 
+
   constructor(public builder:FormBuilder,
      public categoryService : CatogoryService,
      public router:Router) 
@@ -22,7 +23,7 @@ export class CategoryAddComponent {
     registerForm = this.builder.group({
     catName:['',Validators.required],
     description:["", Validators.required]
-  })
+    })
 
   save(RegisterForm:any) {
     
@@ -31,10 +32,10 @@ export class CategoryAddComponent {
     }
   
     if (this.registerForm.valid) {
-      if(sessionStorage.getItem('role')== 'admin'){
+      if(sessionStorage.getItem('role')== 'Admin'){
         this.categoryService.add(RegisterForm.value).subscribe(data => {
-          console.log(data);
-          this.router.navigateByUrl("/home");
+          // console.log(data);
+          this.router.navigateByUrl("/category");
         });
       }
       else{

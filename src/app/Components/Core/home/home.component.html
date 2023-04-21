@@ -59,18 +59,18 @@
             <li class="nav-item">
               <a class="nav-link text-dark" aria-current="page" routerLink="/Home">Home</a>
             </li>
-            <li class="nav-item" > 
+             <li class="nav-item" > 
               <a class="nav-link text-dark" href="#">Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-dark" routerLink="/Products">Product</a>
-            </li>
-            <li class="nav-item">
+            </li> 
+            <li class="nav-item" *ngIf="isAdmin">
               <a class="nav-link text-dark" routerLink="/category">category</a>
             </li>
-            <li class="nav-item" >
-              <a class="nav-link text-dark" routerLink="/Order">Card</a>
-            </li>
+            <li class="nav-item" *ngIf="isClient" >
+              <a class="nav-link text-dark" routerLink="/Order">Order</a>
+            </li> 
           </ul>
         </div>
       </div>

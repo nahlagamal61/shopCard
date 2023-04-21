@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  isAdmin : boolean =false;
-  isClient : boolean =false;
+ public isAdmin : boolean =false;
+ public isClient : boolean =false;
   userId : any ;
   constructor(   ) {
     
   }
-  oninit(){
+  ngOnInit(){
     if(sessionStorage.getItem('role')== 'Admin'){
       this.isAdmin =true
     }

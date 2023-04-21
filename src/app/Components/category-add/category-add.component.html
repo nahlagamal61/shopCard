@@ -1,19 +1,24 @@
 
+<div class="m-2">
+  <button type="button" class="btn btn-primary" href="/Category">Back</button>
+</div>
+
 <div class="card d-flex justify-content-center">
     <form [formGroup]="registerForm" (ngSubmit)="save(registerForm)" class="form-group px-3 py-3">
-      <label for="clinicName">Clinic Name</label>
-      <input type='text' class="form-control mx-2" placeholder="Name" formControlName="clinicName" />
-
   
-      <fieldset formGroupName="clinic_location">
         <label for="catName" class="mt-2">category Name</label>
         <input type="text" class="form-control mx-2" placeholder="categoryName" formControlName="catName">
+        <div *ngIf="getControl('catName')?.errors && getControl('catName')?.touched">
+          <small class="text-danger" *ngIf="getControl('catName')?.errors?.['required']"> Please Enter category</small>
+        </div>
 
-        <label for="description" class="mt-2">Product description</label>
+        <label for="description" class="m-2">Ctegory description</label>
         <input type="text" class="form-control mx-2" placeholder="" formControlName="description">
-      </fieldset>
-  
-      <button class="btn btn-info text-center w-100 my-3">Add</button>
+        <div *ngIf="getControl('description')?.errors && getControl('description')?.touched">
+          <small class="text-danger" *ngIf="getControl('description')?.errors?.['required']"> Please Enter description</small>
+        </div>
+
+      <button class="btn btn-info text-center w-100 my-3" type="submit">Add</button>
     </form>
   </div>
   

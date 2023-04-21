@@ -15,7 +15,7 @@ import { ProductDetailsComponent } from './Components/orders/product-details/pro
 import { FormsModule } from '@angular/forms';
 
 import { ReactiveFormsModule } from '@angular/forms'
-import { ProductAddComponent } from './Components/product-add/product-add.component';
+import { ProductAddComponent } from './Components/orders/product-add/product-add.component';
 
 import { AuthIntercepentorService } from './Services/auth-intercepentor.service';
 import { CategoryAddComponent } from './Components/category-add/category-add.component';
@@ -33,7 +33,8 @@ import { CategorylistComponent } from './Components/categorylist/categorylist.co
     ProductDetailsComponent,
     ProductAddComponent,
     CategoryAddComponent,
-    CategorylistComponent
+    CategorylistComponent,
+    
     
   ],
   imports: [

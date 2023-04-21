@@ -36,8 +36,8 @@ export class UserLoginComponent {
       this.authServices.login(this.loginForm.value).subscribe((_token:any) => {
         this.token = _token;
         if (this.token) {
-          console.log(this.token.email)
-          console.log(this.token)
+          // console.log(this.token.email)
+          // console.log(this.token)
           let id= this.authServices.getId(this.token.token)
           sessionStorage.setItem('token', this.token.token);
           sessionStorage.setItem('role', this.token.message);
@@ -52,7 +52,7 @@ export class UserLoginComponent {
             this.router.navigate(['Home']);
           }
         } else {
-          console.log("login")
+          // console.log("login")
           this.router.navigate(['Products']);
 
         }

@@ -17,7 +17,7 @@
         <td>{{category.catName}}</td>
         <td>{{category.description}}</td>
         <td>
-            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteDialog(category._id)">
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="delete(category._id)">
                 Delete
             </button>
         </td>
@@ -25,23 +25,4 @@
       </tr>  
     </tbody>
   </table>
-</div>
-
-   <!-- Delete Modal -->
- <div class="modal" tabindex="-1" id="deleteModal" [ngClass]="{'show':deleteModal}">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-danger">Delete Confirmation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="deleteModal=false"></button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete?</p>
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="delete(deletedId)">Yes</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deleteModal=false">No</button>
-      </div>
-    </div>
-  </div>
 </div>

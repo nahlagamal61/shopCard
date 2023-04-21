@@ -16,7 +16,7 @@ export class OrdersComponent {
     this.selectedCatgID =0;
   }
 
-  oninit(){
+  ngOnInit(){
     this.CatogoryService.getAll().subscribe(res =>
       {
         this.catList = res

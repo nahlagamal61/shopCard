@@ -8,13 +8,13 @@ import {CatogoryService} from 'src/app/Services/CategoryService'
   styleUrls: ['./categorylist.component.css']
 })
 export class CategorylistComponent {
-
-
   deleteModal = false;
   deletedId = 0;  
 
   categories:CategoryModel[]=[];
-  constructor(public categoryService:CatogoryService, public activatedRoute:ActivatedRoute,private router: Router){
+  constructor(public categoryService:CatogoryService,
+     public activatedRoute:ActivatedRoute,
+    private router: Router){
 
   }
   ngOnInit(){
@@ -25,18 +25,15 @@ export class CategorylistComponent {
   
   }
 
-  deleteDialog(id:number| undefined = 0) {
-    console.log(id)
-    this.deletedId = id;
-    this.deleteModal = true;
-  }
 
-  delete(id: number) {
-      this.categoryService.deleteById(id).subscribe(data => {
-        console.log(data);
-        this.deleteModal = false;
-        location.reload();
-
-      })
+  delete(id: number |undefined =0) {
+    const readyTodelete = confirm("are you sure ?");
+    if(readyTodelete == true){
+        this.categoryService.deleteById(id).subscribe(data => {
+          // console.log("deleted item " + data);
+          this.deleteModal = false;
+          location.reload();
+        })
+    }
   }
 }

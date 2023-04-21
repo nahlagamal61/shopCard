@@ -31,7 +31,5 @@ export class OrdersComponent {
   {
     confirm("Are you sure to buy these products?");
     this.router.navigate(['Home']);
-
   }
-
 }
